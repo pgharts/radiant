@@ -34,6 +34,7 @@ a general purpose content managment system--not merely a blogging engine.}
   s.add_dependency 'kraken-io'
   s.add_dependency 'mysql2'
   s.add_dependency 'mini_racer'
+  s.add_dependency 'mini_magick'
   s.add_dependency 'paperclip',       '> 5.2'
   s.add_dependency 'rack',            '~> 2.0.1'
   s.add_dependency 'rack-cache',      '~> 1.7'

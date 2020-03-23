@@ -9,7 +9,7 @@ require 'trusty_cms/initializer'
 require 'rack/cache'
 require 'trustygems'
 require 'devise'
-
+require "active_storage/engine"
 
 if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(development test)))

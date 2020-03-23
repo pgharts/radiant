@@ -29,3 +29,4 @@ trusty-cms.box
 /coverage/*
 node_modules/**/*
 spec/dummy/node_modules/**/*
+storage/

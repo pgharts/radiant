@@ -8,6 +8,8 @@ class Asset < ActiveRecord::Base
   belongs_to :created_by, :class_name => 'User'
   belongs_to :updated_by, :class_name => 'User'
 
+  has_one_attached :asset
+
   default_scope {order("created_at DESC")}
 
   scope :latest, lambda { |limit|
