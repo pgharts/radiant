@@ -1,4 +1,5 @@
 require_dependency 'application_controller'
+require 'lib/multi_site/admin_ui'
 
 class MultiSiteExtension < TrustyCms::Extension
   version "3.0.2"

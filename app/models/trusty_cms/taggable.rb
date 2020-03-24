@@ -80,38 +80,6 @@ module TrustyCms::Taggable
       Util.tags_in_array(self.instance_methods)
     end
 
-    # Define a tag while also deprecating it. Normal usage:
-    #
-    #   deprecated_tag 'old:way', :substitute => 'new:way', :deadline => '1.1.1'
-    #
-    # If no substitute is given then a warning will be issued but nothing rendered.
-    # If a deadline version is provided then it will be mentioned in the deprecation warnings.
-    #
-    # In less standard situations you can use deprecated_tag in exactly the
-    # same way as tags are normally defined:
-    #
-    # desc %{
-    #   Please note that the old r:busted namespace is no longer supported.
-    #   Refer to the documentation for more about the new r:hotness tags.
-    # }
-    # deprecated_tag 'busted' do |tag|
-    #   raise TagError "..."
-    # end
-    #
-    def deprecated_tag(name, options={}, &dblock)
-      TrustyCms::Taggable.tag_deprecations[name] = options.dup
-      if dblock
-        tag(name) do |tag|
-          warn_of_tag_deprecation(name, options)
-          dblock.call(tag)
-        end
-      else
-        tag(name) do |tag|
-          warn_of_tag_deprecation(name, options)
-          tag.render(options[:substitute], tag.attr.dup, &tag.block) if options[:substitute]
-        end
-      end
-    end
   end
 
   module Util
